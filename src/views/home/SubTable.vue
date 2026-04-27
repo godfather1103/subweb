@@ -21,8 +21,8 @@
                 <div class="col-7 col-md-6">
                   <label class="form-label" for="api">后端服务</label>
                   <select class="form-select" id="api" @change="selectApi">
-                    <option :value="apiUrl">
-                      {{ apiUrl }}
+                    <option v-for="(url, index) in apiUrls" :key="index" :value="url">
+                      {{ url }}
                     </option>
                     <option value="manual">自定义后端 API 地址</option>
                   </select>
@@ -148,6 +148,14 @@ export default {
         { value: 'singbox', text: 'Sing-box' },
       ],
       apiUrl: window.config.apiUrl,
+      apiUrls: Array.from(
+        new Set(
+          [window.config.apiUrl]
+            .concat(window.config.apiExtUrls ? window.config.apiExtUrls.split(',') : [])
+            .filter((url) => url && url.trim() !== '')
+            .map((url) => url.trim())
+        )
+      ),
       shortUrl: window.config.shortUrl,
       remoteConfigOptions: window.config.remoteConfigOptions,
       moreConfig: this.DEFAULT_MORECONFIG,
