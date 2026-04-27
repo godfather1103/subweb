@@ -152,7 +152,7 @@ export default {
         new Set(
           [window.config.apiUrl]
             .concat(window.config.apiExtUrls ? window.config.apiExtUrls.split(',') : [])
-            .filter((url) => url && url.trim() !== '')
+            .filter((url) => url && url.trim() !== '' && regexCheck(url.trim()))
             .map((url) => url.trim())
         )
       ),
