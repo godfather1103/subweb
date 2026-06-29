@@ -7,6 +7,7 @@ window.config = {
   apiExtUrls: 'API_EXT_URLS',
   // 短域名服务地址
   shortUrl: 'https://s.ops.ci',
+  defaultRemoteConfig: '',
   // 首页菜单
   menuItem: [
     {
