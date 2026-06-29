@@ -170,7 +170,7 @@ export default {
       urls: [],
       api: window.config.apiUrl,
       target: 'clash',
-      remoteConfig: '',
+      remoteConfig: window.config.defaultRemoteConfig,
     };
   },
   methods: {
